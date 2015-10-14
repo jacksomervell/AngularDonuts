@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="TheDonutsApp">
+  <head>
+    <meta charset="utf-8">
+    <title>The Donuts App (American spelling)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/donutsController.js" charset="utf-8"></script>
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+    <section ng-controller="DonutsController as donuts">
+      <h1>Donuts</h1>
+
+      <ul id="donuts">
+        <li ng-repeat="donut in donuts.all">
+         <em>({{donut.style}} - {{donut.flavor}})</em>
+         <button type="submit">Delete</button>
+
+        </li>
+      </ul>
+
+      <form class="add-donut" ng-submit='donuts.addDonut()'>
+        <div>
+          <label for="new-donut-style">Donut's style</label>
+          <input type="text" id="new-donut-style" placeholder="Donut style" ng-model='donuts.newDonut.style'>
+        </div>
+
+        <div>
+          <label for="new-donut-flavor">Donut's flavor</label>
+          <input type="text" id="new-donut-flavor" placeholder="Flavour" ng-model='donuts.newDonut.flavor'>
+        </div>
+
+        <div>
+          <input type="submit" value="Add Donut">
+        </div>
+      </form>
+
+    </section>
+
+  </body>
+</html>
